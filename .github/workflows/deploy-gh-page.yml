@@ -36,6 +36,6 @@ jobs:
         keep_tag: 1
         keep_release: 1
         keep_run: 1
-        keep_branch: 1
+        keep_branch: 2
         keep_action_cache: 1
         dry_run: false
