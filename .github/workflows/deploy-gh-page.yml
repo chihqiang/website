@@ -1,6 +1,8 @@
 name: deploy-gh-page
+
 on:
  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,3 +28,14 @@ jobs:
         publish_dir: public
         target_branch: gh-pages
         token: ${{ secrets.GH_TOKEN }}
+    
+    - name: Clean up tags, releases, workflow runs, branches & caches
+      uses: chihqiang/gh-cleanup-action@main
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        keep_tag: 1
+        keep_release: 1
+        keep_run: 1
+        keep_branch: 1
+        keep_action_cache: 1
+        dry_run: false
